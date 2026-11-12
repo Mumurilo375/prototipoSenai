@@ -201,7 +201,7 @@ export default function App() {
               <Avatar name={user.name} />
               <div>
                 {user.name}
-                <small>{user.label} · perfil fictício</small>
+                <small>{user.label}</small>
               </div>
             </div>
           </div>
