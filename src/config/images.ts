@@ -24,7 +24,7 @@ export const images = {
       source:
         "https://media.licdn.com/dms/image/v2/D5603AQFj2-Xi-1jMIQ/profile-displayphoto-crop_800_800/B56ZoxF882I0AI-/0/1761760235870?e=1796256000&v=beta&t=d5u9sj-2iP54-r578kV1vcey4n4mD5NnzHVOGApisFY",
     },
-    "Ana Beatriz Santos": {
+    "Ana Carol Santos": {
       url: "/images/people/ana.jpg",
       source:
         "https://www.pexels.com/photo/portrait-of-beautiful-woman-smiling-12626141/",

@@ -437,6 +437,17 @@ test("fotos centralizadas atualizam registros antigos sem apagar alterações", 
       title: "Atendimento atribuído a Carlos Oliveira",
       note: "Carlos Oliveira realizará a avaliação.",
     });
+    const previousTechnician = tickets.find(
+      (item: { id: string }) => item.id === "3",
+    );
+    previousTechnician.assignee = "Ana Beatriz Santos";
+    previousTechnician.history.push({
+      id: "legacy-technician-name",
+      date: new Date().toISOString(),
+      author: "Ana Beatriz Santos",
+      title: "Atendimento atribuído a Ana Beatriz Santos",
+      note: "Ana Beatriz Santos realizará a avaliação.",
+    });
     ticket.photos[0] = {
       url: "https://images.pexels.com/photos/16592625/obsolete.jpg",
       localUrl: "/old-assets/16592625.jpg",
@@ -491,6 +502,24 @@ test("fotos centralizadas atualizam registros antigos sem apagar alterações", 
   );
   await expect(page.getByText("Carlos Oliveira", { exact: false })).toHaveCount(
     0,
+  );
+  await page.goto("/manutencao/solicitacoes/3");
+  await expect(page.locator(".responsible-line")).toContainText(
+    "Ana Carol Santos",
+  );
+  await expect(page.getByLabel("Responsável", { exact: true })).toHaveValue(
+    "Ana Carol Santos",
+  );
+  await expect(page.locator(".timeline")).toContainText(
+    "Atendimento atribuído a Ana Carol Santos",
+  );
+  await expect(page.locator(".timeline")).toContainText(
+    "Ana Carol Santos realizará a avaliação.",
+  );
+  await expect(page.getByText("Ana Beatriz", { exact: false })).toHaveCount(0);
+  await page.reload();
+  await expect(page.getByLabel("Responsável", { exact: true })).toHaveValue(
+    "Ana Carol Santos",
   );
   await page.goto("/gestao/solicitacoes/9");
   await expect(page.locator(".user-block")).toContainText("Andre Gustavo");

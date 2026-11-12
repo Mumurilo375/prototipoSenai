@@ -18,7 +18,7 @@ export const categories = [
 ] as const;
 export const technicians = [
   config.maintenance,
-  "Ana Beatriz Santos",
+  "Ana Carol Santos",
   "Pedro Henrique Lima",
 ] as const;
 export type Status = (typeof statuses)[number];

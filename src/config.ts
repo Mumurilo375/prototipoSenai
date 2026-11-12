@@ -17,7 +17,8 @@ export function currentPersonName(value: string): string {
   return value
     .replaceAll(legacyCollaboratorName, config.collaborator)
     .replaceAll(legacyMaintenanceName, config.maintenance)
-    .replaceAll(legacyManagementName, config.management);
+    .replaceAll(legacyManagementName, config.management)
+    .replaceAll("Ana Beatriz Santos", "Ana Carol Santos");
 }
 
 export const roles = {

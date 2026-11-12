@@ -53,7 +53,7 @@ const rows: SeedRow[] = [
     3,
     config.collaborator,
     [requestPhoto("light")],
-    "Ana Beatriz Santos",
+    "Ana Carol Santos",
   ],
   [
     "Cadeira de escritório com encosto danificado",
@@ -91,7 +91,7 @@ const rows: SeedRow[] = [
     0,
     "Lucas Almeida",
     [requestPhoto("socket")],
-    "Ana Beatriz Santos",
+    "Ana Carol Santos",
   ],
   [
     "Bebedouro da recepção sem refrigeração",
