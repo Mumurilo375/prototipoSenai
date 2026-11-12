@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import {
   ArrowDownWideNarrow,
   ArrowRight,
-  ClipboardList,
   FilterX,
   ImageIcon,
   Plus,
@@ -262,20 +261,10 @@ export function TicketList({ role }: { role: Exclude<Role, "gestao"> }) {
           )}
         </div>
       </section>
-      <div className="list-footnote">
-        <ShieldNote />
-        <span>
-          Os registros e as fotografias são ilustrativos. Este ambiente
-          demonstra o fluxo de uma solicitação interna.
-        </span>
-      </div>
     </>
   );
 }
 
-function ShieldNote() {
-  return <ClipboardList size={16} />;
-}
 function TicketRow({ ticket: t, role }: { ticket: Ticket; role: Role }) {
   const maintenance = role === "manutencao";
   return (
