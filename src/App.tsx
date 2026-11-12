@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import {
   NavLink,
   Navigate,
@@ -34,6 +34,9 @@ export default function App() {
   const { reset, storageWarning } = useStore();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [resetOpen, setResetOpen] = useState(false);
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
   useEffect(() => {
     if (!mobileOpen) return;
     const previous = document.activeElement as HTMLElement | null;

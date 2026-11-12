@@ -254,6 +254,26 @@ test("fotografias, galeria acessível e fallback sem imagens quebradas", async (
   await expect(page.locator(".gallery-photo img")).toHaveCount(0);
 });
 
+test("troca de ambiente sempre inicia no topo", async ({ page }) => {
+  await page.goto("/colaborador");
+  await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
+  await expect.poll(() => page.evaluate(() => window.scrollY)).toBeGreaterThan(0);
+
+  await page
+    .getByRole("button", { name: "Manutenção Central de atendimento" })
+    .click();
+  await expect(page).toHaveURL(/\/manutencao$/);
+  await expect.poll(() => page.evaluate(() => window.scrollY)).toBe(0);
+
+  await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
+  await expect.poll(() => page.evaluate(() => window.scrollY)).toBeGreaterThan(0);
+  await page
+    .getByRole("button", { name: "Colaborador Minhas solicitações" })
+    .click();
+  await expect(page).toHaveURL(/\/colaborador$/);
+  await expect.poll(() => page.evaluate(() => window.scrollY)).toBe(0);
+});
+
 test("capturas e responsividade: desktop, notebook e celular", async ({
   page,
 }) => {
