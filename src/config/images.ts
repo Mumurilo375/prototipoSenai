@@ -11,7 +11,7 @@ import { config } from "../config";
 export const images = {
   people: {
     [config.collaborator]: {
-      url: "https://media.licdn.com/dms/image/v2/D4D03AQEG89cw57K4ug/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1677373737329?e=1796256000&v=beta&t=RmMbX1GOxVXnUOscbXAgI7e4TOvh_iMSSVVTbwRPtuY",
+      url: "/images/people/mariana-pereira.jpg",
       source:
         "https://media.licdn.com/dms/image/v2/D4D03AQEG89cw57K4ug/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1677373737329?e=1796256000&v=beta&t=RmMbX1GOxVXnUOscbXAgI7e4TOvh_iMSSVVTbwRPtuY",
     },
@@ -20,7 +20,7 @@ export const images = {
       source: "https://avatars.githubusercontent.com/u/223373181?v=4",
     },
     [config.management]: {
-      url: "https://media.licdn.com/dms/image/v2/D5603AQFj2-Xi-1jMIQ/profile-displayphoto-crop_800_800/B56ZoxF882I0AI-/0/1761760235870?e=1796256000&v=beta&t=d5u9sj-2iP54-r578kV1vcey4n4mD5NnzHVOGApisFY",
+      url: "/images/people/andre-gustavo.jpg",
       source:
         "https://media.licdn.com/dms/image/v2/D5603AQFj2-Xi-1jMIQ/profile-displayphoto-crop_800_800/B56ZoxF882I0AI-/0/1761760235870?e=1796256000&v=beta&t=d5u9sj-2iP54-r578kV1vcey4n4mD5NnzHVOGApisFY",
     },
