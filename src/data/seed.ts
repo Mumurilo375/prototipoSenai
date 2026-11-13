@@ -103,7 +103,7 @@ const rows: SeedRow[] = [
     "Em andamento",
     4,
     config.collaborator,
-    [],
+    [requestPhoto("waterFountain")],
     config.maintenance,
   ],
   [
@@ -142,7 +142,7 @@ const rows: SeedRow[] = [
     "Pendente",
     6,
     config.collaborator,
-    [],
+    [requestPhoto("wallLeak")],
     config.maintenance,
   ],
   [
@@ -168,10 +168,15 @@ const rows: SeedRow[] = [
     "Em triagem",
     1,
     config.collaborator,
-    [],
+    [requestPhoto("blinds")],
     "Pedro Henrique Lima",
   ],
 ];
+
+export function seededPhotosForTitle(title: string): Photo[] | undefined {
+  const row = rows.find(([seedTitle]) => seedTitle === title);
+  return row?.[9];
+}
 
 export function makeSeed(): Ticket[] {
   const today = new Date();

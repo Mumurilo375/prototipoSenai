@@ -1,5 +1,8 @@
 import type { Photo } from "../types";
 import { config } from "../config";
+import bebedouroImage from "../imagens/bebedouro.jpeg";
+import infiltracaoImage from "../imagens/infiltracaoparede.jpeg";
+import persianaImage from "../imagens/persiana.jpeg";
 
 /**
  * TODAS AS FOTOS DA DEMONSTRAÇÃO
@@ -74,6 +77,18 @@ export const images = {
       source:
         "https://www.pexels.com/photo/power-socket-during-construction-on-building-5691642/",
       legacyId: "5691642",
+    },
+    waterFountain: {
+      url: bebedouroImage,
+      alt: "Bebedouro da recepção",
+    },
+    wallLeak: {
+      url: infiltracaoImage,
+      alt: "Infiltração na parede próxima à janela",
+    },
+    blinds: {
+      url: persianaImage,
+      alt: "Persiana da sala de treinamento",
     },
   },
 };
