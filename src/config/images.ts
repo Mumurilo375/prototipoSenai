@@ -1,8 +1,12 @@
 import type { Photo } from "../types";
 import { config } from "../config";
 import bebedouroImage from "../imagens/bebedouro.jpeg";
+import fechaduraImage from "../imagens/fechaduradanificada.jpeg";
 import infiltracaoImage from "../imagens/infiltracaoparede.jpeg";
+import mesaImage from "../imagens/mesainstavel.jpeg";
+import portaImage from "../imagens/portasaladearquivos.jpeg";
 import persianaImage from "../imagens/persiana.jpeg";
+import ventiladorImage from "../imagens/ventiladorcomruido.jpeg";
 
 /**
  * TODAS AS FOTOS DA DEMONSTRAÇÃO
@@ -89,6 +93,22 @@ export const images = {
     blinds: {
       url: persianaImage,
       alt: "Persiana da sala de treinamento",
+    },
+    unstableDesk: {
+      url: mesaImage,
+      alt: "Mesa de trabalho com estrutura instável",
+    },
+    damagedLock: {
+      url: fechaduraImage,
+      alt: "Fechadura da sala de suprimentos danificada",
+    },
+    archiveDoor: {
+      url: portaImage,
+      alt: "Porta da sala de arquivos",
+    },
+    noisyFan: {
+      url: ventiladorImage,
+      alt: "Ventilador com ruído excessivo",
     },
   },
 };

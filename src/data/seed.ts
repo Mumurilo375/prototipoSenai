@@ -78,7 +78,7 @@ const rows: SeedRow[] = [
     "Aberto",
     2,
     "Juliana Ferreira",
-    [],
+    [requestPhoto("archiveDoor")],
   ],
   [
     "Tomada com sinais de superaquecimento",
@@ -116,7 +116,7 @@ const rows: SeedRow[] = [
     "Concluído",
     12,
     "Rafael Martins",
-    [],
+    [requestPhoto("unstableDesk")],
     "Pedro Henrique Lima",
   ],
   [
@@ -129,7 +129,7 @@ const rows: SeedRow[] = [
     "Em andamento",
     2,
     config.management,
-    [],
+    [requestPhoto("damagedLock")],
     "Pedro Henrique Lima",
   ],
   [
@@ -155,7 +155,7 @@ const rows: SeedRow[] = [
     "Concluído",
     10,
     "Lucas Almeida",
-    [],
+    [requestPhoto("noisyFan")],
     config.maintenance,
   ],
   [
