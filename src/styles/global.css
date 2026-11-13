@@ -2378,9 +2378,6 @@ a {
   .status-tabs {
     gap: 18px;
   }
-  .list-heading .local-status {
-    display: none;
-  }
   .table-toolbar {
     padding-left: 18px;
     padding-right: 18px;

@@ -130,10 +130,6 @@ export function TicketList({ role }: { role: Exclude<Role, "gestao"> }) {
                 : "Consulte o status e as atualizações de cada atendimento."}
             </p>
           </div>
-          <span className="local-status">
-            <span />
-            Atualizado neste navegador
-          </span>
         </div>
         <div
           className="status-tabs"
