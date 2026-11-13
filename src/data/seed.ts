@@ -178,6 +178,27 @@ export function seededPhotosForTitle(title: string): Photo[] | undefined {
   return row?.[9];
 }
 
+const downloadedSeedImageKeys = new Set([
+  "waterFountain",
+  "wallLeak",
+  "blinds",
+  "unstableDesk",
+  "damagedLock",
+  "archiveDoor",
+  "noisyFan",
+]);
+
+export function downloadedSeedPhotosForTitle(
+  title: string,
+): Photo[] | undefined {
+  const photos = seededPhotosForTitle(title);
+  return photos?.some(
+    (photo) => photo.imageKey && downloadedSeedImageKeys.has(photo.imageKey),
+  )
+    ? photos
+    : undefined;
+}
+
 export function makeSeed(): Ticket[] {
   const today = new Date();
   today.setHours(9, 15, 0, 0);

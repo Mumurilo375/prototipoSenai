@@ -116,18 +116,24 @@ export const images = {
 export type RequestImageKey = keyof typeof images.requests;
 
 export function requestPhoto(key: RequestImageKey): Photo {
-  const { legacyId: _legacyId, ...photo } = images.requests[key];
-  return { ...photo, imageKey: key };
+  const entry = images.requests[key];
+  const { url, alt } = entry;
+  const source = "source" in entry ? entry.source : undefined;
+  return { url, alt, source, imageKey: key };
 }
 
 export function resolvePhoto(photo: Photo): Photo {
   const key = Object.keys(images.requests).find((candidate) => {
     const entry = images.requests[candidate as RequestImageKey];
+    const legacyId = "legacyId" in entry ? entry.legacyId : undefined;
     return (
       photo.imageKey === candidate ||
       (!photo.imageKey &&
-        (photo.localUrl?.includes(entry.legacyId) ||
-          photo.url.includes(`/photos/${entry.legacyId}/`)))
+        Boolean(
+          legacyId &&
+            (photo.localUrl?.includes(legacyId) ||
+              photo.url.includes(`/photos/${legacyId}/`)),
+        ))
     );
   });
   return key ? requestPhoto(key as RequestImageKey) : photo;

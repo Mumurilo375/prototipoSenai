@@ -6,7 +6,11 @@ import {
   type ReactNode,
 } from "react";
 import { config, currentPersonName } from "./config";
-import { makeSeed, seededPhotosForTitle } from "./data/seed";
+import {
+  downloadedSeedPhotosForTitle,
+  makeSeed,
+  seededPhotosForTitle,
+} from "./data/seed";
 import { newId } from "./utils/id";
 import {
   categories,
@@ -68,23 +72,27 @@ function load(): { tickets: Ticket[]; warning: string } {
     )
       throw new Error("invalid");
     return {
-      tickets: data.map((ticket) => ({
-        ...ticket,
-        photos:
-          ticket.photos.length > 0
-            ? ticket.photos
-            : (seededPhotosForTitle(ticket.title) ?? ticket.photos),
-        requester: currentPersonName(ticket.requester),
-        assignee: currentPersonName(ticket.assignee),
-        title: currentPersonName(ticket.title),
-        description: currentPersonName(ticket.description),
-        history: ticket.history.map((event) => ({
-          ...event,
-          author: currentPersonName(event.author),
-          title: currentPersonName(event.title),
-          note: event.note ? currentPersonName(event.note) : event.note,
-        })),
-      })),
+      tickets: data.map((ticket) => {
+        const seededPhotos = seededPhotosForTitle(ticket.title);
+        return {
+          ...ticket,
+          photos:
+            downloadedSeedPhotosForTitle(ticket.title) ??
+            (ticket.photos.length > 0
+              ? ticket.photos
+              : (seededPhotos ?? ticket.photos)),
+          requester: currentPersonName(ticket.requester),
+          assignee: currentPersonName(ticket.assignee),
+          title: currentPersonName(ticket.title),
+          description: currentPersonName(ticket.description),
+          history: ticket.history.map((event) => ({
+            ...event,
+            author: currentPersonName(event.author),
+            title: currentPersonName(event.title),
+            note: event.note ? currentPersonName(event.note) : event.note,
+          })),
+        };
+      }),
       warning: "",
     };
   } catch {
